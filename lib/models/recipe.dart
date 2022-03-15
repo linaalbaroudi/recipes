@@ -1,17 +1,30 @@
 class Recipe{
-  String label;
+  String title;
   String imageURL;
   List<Ingredient> ingredients;
   int servings;
+  String category = 'Editor\'s Choice';
+  String description = 'Learn to make the perfect bread.';
+  String chef = 'Ray Wenderlich';
 
   Recipe(
-      this.label,
+      this.title,
       this.imageURL,
       this.servings,
       this.ingredients
   );
 
   static List<Recipe> samples = [
+    Recipe(
+      'The Art of Dough',
+      'assets/mag1.png',
+      4,
+      [
+        Ingredient(1, 'box', 'Spaghetti',),
+        Ingredient(4, '', 'Frozen Meatballs',),
+        Ingredient(0.5, 'jar', 'sauce',),
+      ],
+    ),
     Recipe(
       'Spaghetti and Meatballs',
       'assets/2126711929_ef763de2b3_w.jpg',

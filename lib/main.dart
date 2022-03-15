@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/home.dart';
+//import 'package:flutter/cupertino.dart';
 import 'models/recipe.dart';
 import 'screens/recipe_detail.dart';
+import 'package:recipes/app_theme.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -11,79 +14,19 @@ class RecipeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = ThemeData();
+    const String title = 'Food Rich';
+
+    // Create theme
+    final ThemeData theme = FooderlichTheme.dark();
+    // TODO: Apply Home widget
 
     return MaterialApp(
-      title: 'Starter App',
-      theme: theme.copyWith(
-          colorScheme: theme.colorScheme.copyWith(
-        primary: Colors.grey,
-        secondary: Colors.black,
-      )),
-      home: const MyHomePage(title: 'Recipe Calculator'),
+      // TODO: Add theme
+      title: title,
+      theme: theme,
+      home: const MyHomePage(title: title),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            itemCount: Recipe.samples.length,
-            itemBuilder: (BuildContext context, int index) {
-              Widget buildRecipeCard(Recipe recipe) {
-                return Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        children: [
-                          //Image.asset(recipe.imageURL),
-                          Image(
-                            image: AssetImage(recipe.imageURL),
-                          ),
-                          const SizedBox(
-                            height: 14,
-                          ),
-                          Text(
-                            recipe.label,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Palantino',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ));
-              }
-
-              return GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return RecipeDetail(recipe: Recipe.samples[index]);
-                    }));
-                  },
-                  child: buildRecipeCard(Recipe.samples[index]));
-            }),
-      ),
-    );
-  }
-}

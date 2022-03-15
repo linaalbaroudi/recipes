@@ -16,7 +16,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.recipe.label),
+        title: Text(widget.recipe.title),
       ),
       body: SafeArea(
         child: Column(
@@ -32,7 +32,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
               height: 4,
             ),
             Text(
-              widget.recipe.label,
+              widget.recipe.title,
               style: const TextStyle(fontSize: 18),
             ),
             Expanded(
