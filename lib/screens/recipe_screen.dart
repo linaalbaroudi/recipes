@@ -15,8 +15,8 @@ class RecipeScreen extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(recipe.imageURL),
-            fit: BoxFit.cover,
+          image: AssetImage(recipe.imageURL),
+          fit: BoxFit.cover,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),

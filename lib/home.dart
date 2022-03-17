@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/screens/authors_screen.dart';
 import 'package:recipes/screens/explore_screen.dart';
 import 'package:recipes/screens/recipe_screen.dart';
 
@@ -15,9 +14,10 @@ class _MyHomePageState extends State<MyHomePage> {
   // Add state variables and functions
   int _selectedIndex = 0;
   static List<Widget> pages = <Widget>[
+    ExploreScreen(),
     const RecipeScreen(),
-    const AuthorsScreen(),
-    const ExploreScreen()
+    //TODO: replace with ToBuyScreen
+    Container(color: Colors.blue),
   ];
 
   void _onItemTapped(int index){
@@ -29,7 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: Style the title
       appBar: AppBar(
         title: Text(widget.title,
           style: Theme.of(context).textTheme.headline6,
@@ -39,22 +38,24 @@ class _MyHomePageState extends State<MyHomePage> {
       body: pages[_selectedIndex],
       // Add bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.grey,
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        showUnselectedLabels: true,
         // Set selected tab bar
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-            label: 'Recipes'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Authors'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.book),
+              icon: Icon(Icons.explore),
               label: 'Explore'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Recipes',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'To Buy',
           ),
         ],
       ),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/home.dart';
 //import 'package:flutter/cupertino.dart';
-import 'models/recipe.dart';
-import 'screens/recipe_detail.dart';
 import 'package:recipes/app_theme.dart';
 
 void main() {
@@ -17,7 +15,7 @@ class RecipeApp extends StatelessWidget {
     const String title = 'Food Rich';
 
     // Create theme
-    final ThemeData theme = FooderlichTheme.dark();
+    final ThemeData theme = FooderlichTheme.light();
     // TODO: Apply Home widget
 
     return MaterialApp(
