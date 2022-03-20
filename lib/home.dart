@@ -15,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static List<Widget> pages = <Widget>[
     ExploreScreen(),
-    const RecipeScreen(),
+    RecipeScreen(),
     //TODO: replace with ToBuyScreen
     Container(color: Colors.blue),
   ];

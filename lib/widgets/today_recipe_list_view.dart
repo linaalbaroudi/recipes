@@ -29,6 +29,7 @@ class TodayRecipeListView  extends StatelessWidget {
         top: 16,),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
               'Recipes of the Day 🍳',
