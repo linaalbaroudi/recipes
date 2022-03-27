@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/models/recipe.dart';
+import 'package:recipes/models/models.dart';
 
 class RecipeDetail extends StatefulWidget {
   const RecipeDetail({Key? key, required this.recipe}) : super(key: key);
-  final Recipe recipe;
+  final SimpleRecipe recipe;
 
   @override
   _RecipeDetailState createState() => _RecipeDetailState();
@@ -25,7 +25,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
               height: 300,
               width: double.infinity,
               child: Image(
-                image: AssetImage(widget.recipe.imageURL),
+                image: AssetImage(widget.recipe.dishImage),
               ),
             ),
             const SizedBox(
@@ -33,7 +33,17 @@ class _RecipeDetailState extends State<RecipeDetail> {
             ),
             Text(
               widget.recipe.title,
-              style: const TextStyle(fontSize: 18),
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(7),
+                itemCount: widget.recipe.information.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final info = widget.recipe.information[index];
+                  return Text(info, style: Theme.of(context).textTheme.headline3,);
+                },
+              ),
             ),
             Expanded(
               child: ListView.builder(
@@ -41,8 +51,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 itemCount: widget.recipe.ingredients.length,
                 itemBuilder: (BuildContext context, int index) {
                   final ingredient = widget.recipe.ingredients[index];
-                  return Text(
-                      '${ingredient.quantity * _sliderVal} ${ingredient.measure} ${ingredient.name}');
+                  return Text('${ingredient.quantity * _sliderVal} ${ingredient.measure} ${ingredient.name}');
                 },
               ),
             ),
@@ -50,7 +59,8 @@ class _RecipeDetailState extends State<RecipeDetail> {
               min: 1,
               max: 10,
               divisions: 9,
-              label: '${_sliderVal*widget.recipe.servings} servings',
+              //label: '${_sliderVal*widget.recipe.servings} servings',
+              label: '$_sliderVal servings',
               value: _sliderVal.toDouble(),
               onChanged: (newValue){
                 setState(() {

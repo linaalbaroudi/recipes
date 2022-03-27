@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/home.dart';
-//import 'package:flutter/cupertino.dart';
 import 'package:recipes/app_theme.dart';
+import 'package:provider/provider.dart';
+import 'package:recipes/managers/managers.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -16,13 +17,17 @@ class RecipeApp extends StatelessWidget {
 
     // Create theme
     final ThemeData theme = FooderlichTheme.light();
-    // TODO: Apply Home widget
 
     return MaterialApp(
-      // TODO: Add theme
       title: title,
       theme: theme,
-      home: const MyHomePage(title: title),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context)=> TabManager()),
+          ChangeNotifierProvider(create: (context)=> GroceryManager())
+        ],
+        child: const MyHomePage(title: title),
+      ),
     );
   }
 }
