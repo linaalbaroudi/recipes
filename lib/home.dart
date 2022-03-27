@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           // Show selected tab
-          body: pages[tabManager.selectedTab],
+          body: IndexedStack(index: tabManager.selectedTab, children: pages,) ,// pages[tabManager.selectedTab],
           // Add bottom navigation bar
           bottomNavigationBar: BottomNavigationBar(
             unselectedItemColor: Colors.grey,

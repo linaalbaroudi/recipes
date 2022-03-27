@@ -17,11 +17,20 @@ class GroceryTile extends StatelessWidget {
   Widget BuildImportance() {
     if (item.importance == Importance.low) {
       return Text('Low',
-          style: GoogleFonts.lato(
-              fontWeight: FontWeight.w800, decoration: textDecoration));
+        style: GoogleFonts.lato(
+          color: Colors.blue,
+          fontWeight: FontWeight.w900,
+          decoration: textDecoration,
+        ),
+      );
     } else if (item.importance == Importance.medium) {
       return Text('Medium',
-          style: GoogleFonts.lato(decoration: textDecoration));
+        style: GoogleFonts.lato(
+          color: Colors.green,
+          fontWeight: FontWeight.w900,
+          decoration: textDecoration,
+        ),
+      );
     } else if (item.importance == Importance.high) {
       return Text(
         'High',

@@ -108,7 +108,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
                 'low',
                 style: TextStyle(color: Colors.white),
               ),
-              selectedColor: Colors.black,
+              selectedColor: Colors.blue,
               selected: _importance == Importance.low,
               onSelected: (selected) {
                 setState(() {
@@ -121,7 +121,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
                 'Medium',
                 style: TextStyle(color: Colors.white),
               ),
-              selectedColor: Colors.black,
+              selectedColor: Colors.green,
               selected: _importance == Importance.medium,
               onSelected: (selected) {
                 setState(() {
@@ -134,7 +134,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
                 'High',
                 style: TextStyle(color: Colors.white),
               ),
-              selectedColor: Colors.black,
+              selectedColor: Colors.red,
               selected: _importance == Importance.high,
               onSelected: (selected) {
                 setState(() {

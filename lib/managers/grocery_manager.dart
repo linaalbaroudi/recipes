@@ -20,7 +20,7 @@ class GroceryManager extends ChangeNotifier{
 
   void updateItem(GroceryItem groceryItem, int index){
     if(_groceryList.length-1 >= index){
-      _groceryList.insert(index, groceryItem);
+      _groceryList[index] = groceryItem;
       notifyListeners();
     }
   }
@@ -28,7 +28,7 @@ class GroceryManager extends ChangeNotifier{
   void completeItem(int index, bool change){
     if(_groceryList.length-1 >= index){
       final groceryItem = _groceryList[index];
-      _groceryList.insert(index, groceryItem.copyWith(isComplete: change));
+      _groceryList[index] = groceryItem.copyWith(isComplete: change);
       notifyListeners();
     }
   }
